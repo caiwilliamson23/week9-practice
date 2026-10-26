@@ -16,5 +16,22 @@
   <footer>
     <p>&copy; 2026 Redtail Barn Event Space</p>
   </footer>
+  <script>
+    function getLocation() {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }
+
+    function showPosition(position) {
+      var lat = position.coords.latitude.toFixed(1);
+      var lon = position.coords.longitude.toFixed(1);
+      document.getElementById("location-message").textContent =
+        "You're near " + lat + ", " + lon + ". Redtail Barn is out in the county, so plan on extra drive time if you're coming from town.";
+    }
+
+    function showError(error) {
+      document.getElementById("location-message").textContent =
+        "We couldn't get your location, but that's alright. You can still browse the rest of the site and check our directions page for the address.";
+    }
+  </script>
 </body>
 </html>
